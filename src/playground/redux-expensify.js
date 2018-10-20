@@ -10,12 +10,23 @@ const addExpense = ({ description = '', note = '', amount = 0, createdAt = 0 } =
     amount,
     createdAt
   }
-})
+});
 
 const removeExpense = ({ id } = {}) => ({
   type: 'REMOVE_EXPENSE',
   id
-})
+});
+
+const editExpense = (id, updates) => ({
+  type: 'EDIT_EXPENSE',
+  id,
+  updates
+});
+
+const setFilter = (text = '') => ({
+  type: 'SET_FILTER',
+  text
+});
 
 const expensesReducerDefaultState = [];
 const filterReducerDefaultState = {
@@ -31,6 +42,15 @@ const expensesReducer = (state = expensesReducerDefaultState, action) => {
       return  [...state, action.expense];
     case 'REMOVE_EXPENSE':
       return state.filter(expense => expense.id !== action.id);
+    case 'EDIT_EXPENSE':
+      return state.map(expense => {
+        return expense.id === action.id
+          ? {
+            ...expense,
+            ...action.updates
+          }
+          : expense;
+      });
     default:
       return state;
   }
@@ -38,6 +58,11 @@ const expensesReducer = (state = expensesReducerDefaultState, action) => {
 
 const filterReducer = (state = filterReducerDefaultState, action) => {
   switch(action.type) {
+    case 'SET_FILTER':
+      return {
+        ...state,
+        text: action.text
+      };
     default:
       return state;
   }
@@ -55,9 +80,15 @@ store.subscribe(() => {
 });
 
 const expenseOne = store.dispatch(addExpense({ description: 'Rent', amount: 1000 }))
-store.dispatch(addExpense({ description: 'Coffee', amount: 200 }))
+const expenseTwo = store.dispatch(addExpense({ description: 'Coffee', amount: 200 }))
 
 store.dispatch(removeExpense({ id: expenseOne.expense.id }))
+
+store.dispatch(editExpense(expenseTwo.expense.id, { amount: 500}))
+
+
+store.dispatch(setFilter('rent'));
+store.dispatch(setFilter());
 
 const demoState = {
   expenses: [{
