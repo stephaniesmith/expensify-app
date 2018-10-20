@@ -28,6 +28,24 @@ const setFilter = (text = '') => ({
   text
 });
 
+const sortByAmount = () => ({
+  type: 'SORT_AMOUNT',
+});
+
+const sortByDate = () => ({
+  type: 'SORT_DATE',
+});
+
+const setStartDate = startDate => ({
+  type: 'SET_START_DATE',
+  startDate
+});
+
+const setEndDate = endDate => ({
+  type: 'SET_END_DATE',
+  endDate
+});
+
 const expensesReducerDefaultState = [];
 const filterReducerDefaultState = {
   test: '',
@@ -63,6 +81,26 @@ const filterReducer = (state = filterReducerDefaultState, action) => {
         ...state,
         text: action.text
       };
+    case 'SORT_AMOUNT':
+    return {
+      ...state,
+      sortBy: 'amount'
+    }
+    case 'SORT_DATE':
+    return {
+      ...state,
+      sortBy: 'date'
+    }
+    case 'SET_START_DATE':
+    return {
+      ...state,
+      startDate: action.startDate
+    }
+    case 'SET_END_DATE':
+    return {
+      ...state,
+      endDate: action.endDate
+    }
     default:
       return state;
   }
@@ -79,16 +117,23 @@ store.subscribe(() => {
   console.log(store.getState());
 });
 
-const expenseOne = store.dispatch(addExpense({ description: 'Rent', amount: 1000 }))
-const expenseTwo = store.dispatch(addExpense({ description: 'Coffee', amount: 200 }))
+// const expenseOne = store.dispatch(addExpense({ description: 'Rent', amount: 1000 }))
+// const expenseTwo = store.dispatch(addExpense({ description: 'Coffee', amount: 200 }))
 
-store.dispatch(removeExpense({ id: expenseOne.expense.id }))
+// store.dispatch(removeExpense({ id: expenseOne.expense.id }))
 
-store.dispatch(editExpense(expenseTwo.expense.id, { amount: 500}))
+// store.dispatch(editExpense(expenseTwo.expense.id, { amount: 500}))
 
 
-store.dispatch(setFilter('rent'));
-store.dispatch(setFilter());
+// store.dispatch(setFilter('rent'));
+// store.dispatch(setFilter());
+
+// store.dispatch(sortByAmount());
+// store.dispatch(sortByDate());
+
+store.dispatch(setStartDate(123));
+store.dispatch(setStartDate());
+store.dispatch(setEndDate(123));
 
 const demoState = {
   expenses: [{
