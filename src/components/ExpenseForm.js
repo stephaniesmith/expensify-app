@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
+import moment from 'moment';
+import { SingleDatePicker } from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css'
 
 export default class ExpenseForm extends Component {
   state = {
     description: '',
     note: '',
-    amount: ''
+    amount: '',
+    createdAt: moment(),
+    focused: false,
+    error: ''
   }
 
   onDescriptionChange = e => {
@@ -19,17 +25,40 @@ export default class ExpenseForm extends Component {
 
   onAmountChange = e => {
     const amount = e.target.value;
-    if(amount.match(/^\d*(\.\d{0,2})?$/)) {
+    if(!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/)) {
       this.setState(() => ({ amount }));
     }
   }
 
+  onDateChange = createdAt => {
+    if(createdAt) {
+      this.setState(() => ({ createdAt }));
+    }
+  }
+
+  onFocusChange = ({ focused }) => {
+    this.setState(() => ({ focused }));
+  }
+
+  onSubmit = e => {
+    e.preventDefault();
+    const { description, amount } = this.state;
+
+
+    if(!description || !amount) {
+      this.setState(() => ({ error: 'Please provide description and amount.' }));
+    } else {
+      this.setState(() => ({ error: '' }));
+    }
+  }
+
   render() {
-    const { description, note, amount } = this.state;
+    const { description, note, amount, createdAt, focused, error } = this.state;
 
     return (
       <div>
-        <form>
+        {error && <p>{error}</p>}
+        <form onSubmit={this.onSubmit}>
           <input
             type="text"
             placeholder="Description"
@@ -42,6 +71,14 @@ export default class ExpenseForm extends Component {
             placeholder="Amount"
             value={amount}
             onChange={this.onAmountChange}
+          />
+          <SingleDatePicker
+            date={createdAt}
+            onDateChange={this.onDateChange}
+            focused={focused}
+            onFocusChange={this.onFocusChange}
+            numberOfMonths={1}
+            isOutsideRange={() => false}
           />
           <textarea
             placeholder="Add a note for your expense"
