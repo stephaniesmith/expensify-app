@@ -7,6 +7,6 @@ const EditExpense = props => {
       EDIT!
     </div>
   );
-};
+}; 
 
 export default EditExpense;
