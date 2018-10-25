@@ -9,6 +9,7 @@ const AddExpense = props => (
     <ExpenseForm
       onSubmit={expense => {
         props.dispatch(addExpense(expense))
+        props.history.push('/');
       }}
     />
   </div>
