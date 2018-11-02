@@ -15,7 +15,7 @@ const withAdminWarning = WrappedComponent => {
       <WrappedComponent {...props}/>
     </div>
   );
-}
+};
 
 const requireAuthentication = WrappedComponent => {
   return props => (
@@ -26,7 +26,7 @@ const requireAuthentication = WrappedComponent => {
       }
     </div>
   );
-}
+};
 
 
 

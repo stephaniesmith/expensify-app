@@ -9,7 +9,7 @@ test('remove action', () => {
 });
 
 test('edit action', () => {
-  const action = editExpense('123', { note: 'Note'});
+  const action = editExpense('123', { note: 'Note' });
   expect(action).toEqual({
     type: 'EDIT_EXPENSE',
     id: '123',
