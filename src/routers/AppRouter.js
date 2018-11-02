@@ -15,6 +15,7 @@ const ReactRouter = () => (
         <Route path="/" component={ExpenseDashboard} exact={true}/>
         <Route path="/create" component={AddExpense}/>
         <Route path="/help" component={Help}/>
+        <Route path="/edit/:id" component={EditExpense}/>
         <Route component={NotFound}/>
         </Switch>
     </div>
