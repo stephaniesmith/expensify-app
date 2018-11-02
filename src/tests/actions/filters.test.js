@@ -27,6 +27,15 @@ test('filter action', () => {
 });
 
 test('filter action default', () => {
+  const textData = {
+    type: 'SET_FILTER',
+    text: ''
+  };
+  const action = setFilter();
+  expect(action).toEqual(textData);
+});
+
+test('filter action default', () => {
   const action = sortByDate();
   expect(action).toEqual({ type: 'SORT_DATE' });
 });

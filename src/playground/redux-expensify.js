@@ -82,25 +82,25 @@ const filterReducer = (state = filterReducerDefaultState, action) => {
         text: action.text
       };
     case 'SORT_AMOUNT':
-    return {
-      ...state,
-      sortBy: 'amount'
-    }
+      return {
+        ...state,
+        sortBy: 'amount'
+      };
     case 'SORT_DATE':
-    return {
-      ...state,
-      sortBy: 'date'
-    }
+      return {
+        ...state,
+        sortBy: 'date'
+      };
     case 'SET_START_DATE':
-    return {
-      ...state,
-      startDate: action.startDate
-    }
+      return {
+        ...state,
+        startDate: action.startDate
+      };
     case 'SET_END_DATE':
-    return {
-      ...state,
-      endDate: action.endDate
-    }
+      return {
+        ...state,
+        endDate: action.endDate
+      };
     default:
       return state;
   }
@@ -116,8 +116,8 @@ const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate }) => {
   }).sort((a, b) => {
     if(sortBy === 'date') return a.createdAt < b.createdAt ? 1 : -1;
     else if(sortBy === 'amount') return a.amount < b.amount ? 1 : -1;
-  })
-}
+  });
+};
 
 const store = createStore(
   combineReducers({
@@ -129,15 +129,14 @@ const store = createStore(
 store.subscribe(() => {
   const state = store.getState();
   const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
-  console.log(visibleExpenses);
 });
 
-const expenseOne = store.dispatch(addExpense({ description: 'Rent', amount: 1000, createdAt: -10000 }))
-const expenseTwo = store.dispatch(addExpense({ description: 'Coffee', amount: 20000, createdAt: 1000 }))
+const expenseOne = store.dispatch(addExpense({ description: 'Rent', amount: 1000, createdAt: -10000 }));
+const expenseTwo = store.dispatch(addExpense({ description: 'Coffee', amount: 20000, createdAt: 1000 }));
 
-store.dispatch(removeExpense({ id: expenseOne.expense.id }))
+store.dispatch(removeExpense({ id: expenseOne.expense.id }));
 
-store.dispatch(editExpense(expenseTwo.expense.id, { amount: 500}))
+store.dispatch(editExpense(expenseTwo.expense.id, { amount: 500  }));
 
 
 store.dispatch(setFilter('rent'));
@@ -164,4 +163,4 @@ const demoState = {
     startDate: undefined,
     endDate: undefined
   }
-}
+};

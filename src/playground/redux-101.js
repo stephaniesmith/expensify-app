@@ -25,22 +25,22 @@ const countReducer = (state = { count: 0 }, action) => {
     case 'INCREMENT':
       return {
         count: state.count + action.incrementBy
-      }
+      };;
     case 'DECREMENT':
       const decrementBy = typeof action.decrementBy === 'number'
-      ? action.decrementBy
-      : 1;
+        ? action.decrementBy
+        : 1;
       return {
         count: state.count - decrementBy
-      }
+      };
     case 'SET': 
       return {
         count: action.count
-      }
+      };
     case 'RESET':
       return {
         count: 0
-      }
+      };
     default:
       return state;
   }

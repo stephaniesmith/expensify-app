@@ -9,6 +9,6 @@ const Header = () => (
     <NavLink to="/edit" activeClassName="is-active">Edit Expense</NavLink>
     <NavLink to="/help" activeClassName="is-active">Help</NavLink>
   </header>
-)
+);
 
 export default Header;

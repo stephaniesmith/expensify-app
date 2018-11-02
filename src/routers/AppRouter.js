@@ -17,7 +17,7 @@ const ReactRouter = () => (
         <Route path="/help" component={Help}/>
         <Route path="/edit/:id" component={EditExpense}/>
         <Route component={NotFound}/>
-        </Switch>
+      </Switch>
     </div>
   </BrowserRouter>
 );
