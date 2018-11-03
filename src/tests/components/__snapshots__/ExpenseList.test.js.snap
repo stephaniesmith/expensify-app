@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render Header correctly 1`] = `
+exports[`should render ExpenseList correctly with expenses 1`] = `
 <div>
   <ExpenseListItem
     amount={195}
@@ -29,7 +29,7 @@ exports[`should render Header correctly 1`] = `
 </div>
 `;
 
-exports[`should render Header correctly 2`] = `
+exports[`should render ExpenseList correctly with no expenses 1`] = `
 <div>
   <p>
     No expenses

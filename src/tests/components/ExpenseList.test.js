@@ -3,12 +3,12 @@ import { shallow } from 'enzyme';
 import { ExpenseList } from '../../components/ExpensesList';
 import expenses from '../fixtures/expenses';
 
-test('should render Header correctly', () => {
+test('should render ExpenseList correctly with expenses', () => {
   const wrapper = shallow(<ExpenseList expenses={expenses}/>);
   expect(wrapper).toMatchSnapshot();
 });
 
-test('should render Header correctly', () => {
+test('should render ExpenseList correctly with no expenses', () => {
   const wrapper = shallow(<ExpenseList expenses={[]}/>);
   expect(wrapper).toMatchSnapshot();
 });
