@@ -20,7 +20,7 @@ export class ExpenseListFilters extends Component {
   };
 
   onTextChange = e => {
-    this.props.setFilter(e.target.value);
+    this.props.setTextFilter(e.target.value);
   };
 
   onSortChange = e => {
