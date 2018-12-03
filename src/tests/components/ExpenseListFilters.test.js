@@ -23,3 +23,7 @@ beforeEach(() => {
     />
   );
 });
+
+test('should render ExpenseListFilters correctly', () => {
+  expect(wrapper).toMatchSnapshot();
+});
