@@ -13,6 +13,72 @@ firebase.initializeApp(config);
 
 const { database } = firebase;
 
+
+database()
+  .ref('expenses')
+  .once('value')
+  .then(snapshot => {
+    const expenses = []
+
+    snapshot.forEach(child => {
+      expenses.push({
+        id: child.key,
+        ...child
+      });
+    });
+
+    console.log(expenses);
+  });
+
+
+// database().ref('expenses').push({
+//   description: 'Rent',
+//   note: '',
+//   amount: 100,
+//   createdAt: 29347923
+// });
+
+// database().ref('expenses').push({
+//   description: 'Train',
+//   note: '',
+//   amount: 23000,
+//   createdAt: 182739812
+// });
+
+// database().ref('expenses').push({
+//   description: 'Food',
+//   note: '',
+//   amount: 1234800,
+//   createdAt: 1112391287391
+// });
+
+// database().ref('notes/-LT4i_A_ottk-wn2UkAw').remove();
+
+// database().ref('notes').push({
+//   title: 'To Do',
+//   body: 'Hello!'
+// });
+
+// database().ref('notes').push({
+//   title: 'Another!',
+//   body: 'Hello!'
+// });
+
+// const firebaseNotes = {
+//   notes: {
+//     sjdhflakh: {
+//       title: 'First Note!',
+//       body: 'This is a note'
+//     }
+//     askdfjlas: {
+//       title: 'Another Note!',
+//       body: 'This is another note'
+//     }
+//   }
+// }
+
+
+
 // database()
 //   .ref()
 //   .on('value', snapshot => {
