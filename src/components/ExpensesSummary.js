@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import numeral from 'numeral';
 
-const ExpensesSummary = ({ expenseCount, expensesTotal}) => {
+const ExpensesSummary = ({ expenseCount, expensesTotal }) => {
   const expenseWord = expenseCount === 1 ? 'expense' : 'expenses';
   const formatedTotal = numeral(expensesTotal / 100).format('$0,0.00');
   return (
