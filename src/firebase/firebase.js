@@ -13,25 +13,34 @@ firebase.initializeApp(config);
 
 const { database } = firebase;
 
-const onValueChange = database()
-  .ref()
-  .on('value', snapshot => {
-    console.log(snapshot.val());
-  }, err => {
-    console.error(err);
-  });
+// database()
+//   .ref()
+//   .on('value', snapshot => {
+//     const val = snapshot.val();
+//     console.log(`${val.name} is a ${val.job.title} at ${val.job.company}`);
+//   });
 
-setTimeout(() => {
-  database().ref('age').set(29);
-}, 3500);
 
-setTimeout(() => {
-  database().ref().off(onValueChange);
-}, 7000);
 
-setTimeout(() => {
-  database().ref('age').set(31);
-}, 10500);
+// const onValueChange = database()
+//   .ref()
+//   .on('value', snapshot => {
+//     console.log(snapshot.val());
+//   }, err => {
+//     console.error(err);
+//   });
+
+// setTimeout(() => {
+//   database().ref('age').set(29);
+// }, 3500);
+
+// setTimeout(() => {
+//   database().ref().off(onValueChange);
+// }, 7000);
+
+// setTimeout(() => {
+//   database().ref('age').set(31);
+// }, 10500);
   
 // database()
 //   .ref('location/city')
