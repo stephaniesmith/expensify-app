@@ -6,7 +6,7 @@ test('start date action', () => {
   expect(action).toEqual({
     type: 'SET_START_DATE',
     startDate: moment(0)
-  })
+  });
 });
 
 test('end date action', () => {
@@ -14,7 +14,7 @@ test('end date action', () => {
   expect(action).toEqual({
     type: 'SET_END_DATE',
     endDate: moment(0)
-  })
+  });
 });
 
 test('filter action', () => {

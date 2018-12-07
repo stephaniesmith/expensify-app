@@ -1,17 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ExpenseListItem from './ExpenseListItem';
 import selectExpenses from '../selectors/expenses';
 
-export const ExpenseList = props => (
+export const ExpenseList = ({ expenses }) => (
   <div>
     {
-      props.expenses.length === 0
+      expenses.length === 0
         ? <p>No expenses</p>
-        : props.expenses.map(expense => <ExpenseListItem key={expense.id} {...expense}/>)
+        : expenses.map(expense => <ExpenseListItem key={expense.id} {...expense}/>)
     }
   </div>
 );
+
+ExpenseList.propTypes = {
+  expenses: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = state => {
   return {

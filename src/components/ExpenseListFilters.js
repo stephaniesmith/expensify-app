@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { DateRangePicker } from 'react-dates';
 import { setFilter, sortByAmount, sortByDate, setEndDate, setStartDate } from '../actions/filters';
 
 export class ExpenseListFilters extends Component {
+
+  static propTypes = {
+    setStartDate: PropTypes.func.isRequired,
+    setEndDate: PropTypes.func.isRequired,
+    setTextFilter: PropTypes.func.isRequired,
+    sortByDate: PropTypes.func.isRequired,
+    sortByAmount: PropTypes.func.isRequired,
+    filters: PropTypes.object.isRequired
+  };
 
   state = {
     calenderFocused: null,
@@ -29,7 +39,7 @@ export class ExpenseListFilters extends Component {
     e.target.value === 'date'
       ? sortByDate(e.target.value)
       : sortByAmount(e.target.value);
-  }
+  };
 
   render() {
     const { filters } = this.props;

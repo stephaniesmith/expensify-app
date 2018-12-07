@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { createStore } from 'redux';
 
 const incrementCount = ({ incrementBy = 1 } = {}) =>  ({

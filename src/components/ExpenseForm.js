@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import { SingleDatePicker } from 'react-dates';
 
 export default class ExpenseForm extends Component {
   constructor(props) {
     super(props);
-
+    
     const { expense } = props;
-
+    
     this.state = {
       description: expense ? expense.description : '',
       note: expense ? expense.note : '',
@@ -17,6 +18,11 @@ export default class ExpenseForm extends Component {
       error: ''
     };
   }
+
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+    expense: PropTypes.object,
+  };
 
   onDescriptionChange = e => {
     const description = e.target.value;

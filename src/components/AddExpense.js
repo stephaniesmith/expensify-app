@@ -1,14 +1,20 @@
-import React, { Component } from 'react';;
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
 import { addExpense } from '../actions/expenses';
 
 export class AddExpense extends Component {
+  static propTypes = {
+    addExpense: PropTypes.func.isRequired,
+    history: PropTypes.func.isRequired,
+  };
 
   onSubmit = expense => {
     this.props.addExpense(expense);
     this.props.history.push('/');
   };
+
   render() {
     return (
       <div>
