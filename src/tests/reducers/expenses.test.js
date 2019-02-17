@@ -73,3 +73,13 @@ test('should edit an expense', () => {
   const state = expenses(expensesList, action);
   expect(state).toEqual(expensesList);
 });
+
+test('should set expenses', () => {
+  const action = {
+    type: 'SET_EXPENSES',
+    expenses: [expensesList[1]]
+  };
+
+  const state = expenses(expensesList, action);
+  expect(state).toEqual([expensesList[1]]);
+});
