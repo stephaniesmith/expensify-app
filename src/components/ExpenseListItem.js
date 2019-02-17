@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import numeral from 'numeral';
@@ -15,4 +16,15 @@ const ExpenseListItem = ({ id, description, amount, createdAt }) => (
   </div>
 );
 
+ExpenseListItem.propTypes = {
+  id: PropTypes.string,
+  description: PropTypes.string,
+  amount: PropTypes.number,
+  createdAt: PropTypes.number
+};
+
 export default ExpenseListItem;
+
+
+
+
