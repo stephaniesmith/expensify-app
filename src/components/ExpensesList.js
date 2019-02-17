@@ -15,7 +15,7 @@ export const ExpenseList = ({ expenses }) => (
 );
 
 ExpenseList.propTypes = {
-  expenses: PropTypes.object.isRequired,
+  expenses: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = state => {

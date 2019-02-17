@@ -17,10 +17,10 @@ const ExpenseListItem = ({ id, description, amount, createdAt }) => (
 );
 
 ExpenseListItem.propTypes = {
-  id: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  amount: PropTypes.number.isRequired,
-  createdAt: PropTypes.number.isRequired
+  id: PropTypes.string,
+  description: PropTypes.string,
+  amount: PropTypes.number,
+  createdAt: PropTypes.number
 };
 
 export default ExpenseListItem;
