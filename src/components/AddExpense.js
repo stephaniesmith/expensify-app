@@ -7,7 +7,7 @@ import { startAddExpense } from '../actions/expenses';
 export class AddExpense extends Component {
   static propTypes = {
     startAddExpense: PropTypes.func.isRequired,
-    history: PropTypes.func.isRequired,
+    history: PropTypes.object.isRequired,
   };
 
   onSubmit = expense => {

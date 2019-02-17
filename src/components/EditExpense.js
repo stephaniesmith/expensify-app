@@ -9,7 +9,7 @@ export class EditExpense extends Component {
   static propTypes = {
     expense: PropTypes.object,
     editExpense: PropTypes.func.isRequired,
-    history: PropTypes.func.isRequired,
+    history: PropTypes.object.isRequired,
     removeExpense: PropTypes.func.isRequired,
   };
   

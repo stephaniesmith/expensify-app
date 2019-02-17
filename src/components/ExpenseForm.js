@@ -20,7 +20,7 @@ export default class ExpenseForm extends Component {
   }
 
   static propTypes = {
-    onSubmit: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func,
     expense: PropTypes.object,
   };
 
