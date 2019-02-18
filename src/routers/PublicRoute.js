@@ -4,21 +4,16 @@ import { Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Header from '../components/Header';
 
-const PrivateRoute = ({ isAuthenticated, component: Component, ...rest }) => {
+const PublicRoute = ({ isAuthenticated, component: Component, ...rest }) => {
   return (
     <Route {...rest} component={props => isAuthenticated
-      ? (
-        <div>
-          <Header/>
-          <Component {...props}/>
-        </div>
-      )
-      : <Redirect to="/"/>}
+      ? <Redirect to="/dashboard"/>
+      : <Component {...props}/>}
     />
   );
 };
 
-PrivateRoute.propTypes = {
+PublicRoute.propTypes = {
   isAuthenticated: PropTypes.bool,
   component: PropTypes.func
 };
@@ -27,4 +22,4 @@ const mapStateToProps = state => ({
   isAuthenticated: !!state.auth.uid
 });
 
-export default connect(mapStateToProps)(PrivateRoute);
+export default connect(mapStateToProps)(PublicRoute);
