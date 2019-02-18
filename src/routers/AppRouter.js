@@ -6,13 +6,15 @@ import AddExpense from '../components/AddExpense';
 import EditExpense from '../components/EditExpense';
 import Help from '../components/Help';
 import NotFound from '../components/NotFound';
+import Login from '../components/Login';
 
 const ReactRouter = () => (
   <BrowserRouter>
     <div>
       <Header/>
       <Switch>
-        <Route path="/" component={ExpenseDashboard} exact={true}/>
+        <Route path="/" component={Login} exact={true}/>
+        <Route path="/dashboard" component={ExpenseDashboard}/>
         <Route path="/create" component={AddExpense}/>
         <Route path="/help" component={Help}/>
         <Route path="/edit/:id" component={EditExpense}/>
