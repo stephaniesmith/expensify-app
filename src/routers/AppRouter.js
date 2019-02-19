@@ -7,7 +7,7 @@ import EditExpense from '../components/EditExpense';
 import NotFound from '../components/NotFound';
 import Login from '../components/Login';
 import PrivateRoute from './PrivateRoute';
-import PublicRoute from './PublicRoute'
+import PublicRoute from './PublicRoute';
 
 export const history = createHistory();
 
