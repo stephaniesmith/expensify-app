@@ -76,9 +76,6 @@ export const startSetExpenses = () => {
           });
         });
 
-        console.log(snapshot)
-        console.log(expenses);
-
         dispatch(setExpenses(expenses));
       });
   };
