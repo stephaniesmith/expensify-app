@@ -52,12 +52,15 @@ export class ExpenseListFilters extends Component {
           <div className="input-group__item">
             <input 
               type="text" 
+              className="text-input"
+              placeholder="Search expenses"
               value={filters.text} 
               onChange={this.onTextChange}
             />
           </div>
           <div className="input-group__item">
             <select
+              className="select"
               value={filters.sortBY}
               onChange={this.onSortChange}
             >
