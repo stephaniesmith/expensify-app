@@ -11,11 +11,17 @@ export const ExpenseList = ({ expenses }) => (
       <div className="show-for-desktop">Expense</div>
       <div className="show-for-desktop">Amount</div>
     </div>
-    {
-      expenses.length === 0
-        ? <p>No expenses</p>
-        : expenses.map(expense => <ExpenseListItem key={expense.id} {...expense}/>)
-    }
+    <div className="list-body">
+      {
+        expenses.length === 0
+          ? (
+            <div className="list-item list-item--message">
+              <span>No expenses</span>
+            </div>
+          )
+          : expenses.map(expense => <ExpenseListItem key={expense.id} {...expense}/>)
+      }
+    </div>
   </div>
 );
 
